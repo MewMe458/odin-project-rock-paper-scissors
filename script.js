@@ -1,14 +1,34 @@
-function computerChoice() {
-    finalChoice = Math.floor(Math.random() * 3);
-    if (finalChoice == 0) {
-        return "Rock";
+function humanChoice() {
+    humanPrompt = prompt("Rock, Paper or Scissors?")
+    if (humanPrompt == null) {
+        return "Ok, maybe next time."
     }
-    else if (finalChoice == 1) {
-        return "Paper";
+    else if (humanPrompt.toLowerCase() == "rock") {
+        return "You choose Rock";
+    }
+    else if (humanPrompt.toLowerCase() == "paper") {
+        return "You choose Paper";
+    }
+    else if (humanPrompt.toLowerCase() == "scissors") {
+        return "You choose Scissors";
     }
     else {
-        return "Scissors";
+        return "Invalid answer";
     }
 }
 
+function computerChoice() {
+    finalChoice = Math.floor(Math.random() * 3);
+    if (finalChoice == 0) {
+        return "Computer chooses Rock";
+    }
+    else if (finalChoice == 1) {
+        return "Computer chooses Paper";
+    }
+    else {
+        return "Computer chooses Scissors";
+    }
+}
+
+console.log(humanChoice());
 console.log(computerChoice());
