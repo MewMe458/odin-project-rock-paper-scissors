@@ -1,3 +1,11 @@
+// Select the results div
+const resultsDiv = document.querySelector("#results");
+
+// Helper function to update the screen instead of the console
+function updateDisplay(message) {
+    resultsDiv.innerText = message;
+}
+
 function handleChoice(playerSelection) {
     const computerSelection = computerChoice();
     playRound(playerSelection, computerSelection);
@@ -19,57 +27,48 @@ function computerChoice() {
 function playRound(humanChoice, computerChoice) {
     if (humanChoice.toLowerCase() == "scissors") {
         if (computerChoice == "rock") {
-            console.log("You choose scissors, computer choose rock.");
-            console.log("Computer wins!");
+            updateDisplay("You chose scissors, computer chose rock. Computer wins!");
             return "computer";
         }
         else if (computerChoice == "paper") {
-            console.log("You choose scissors, computer choose paper.");
-            console.log("You win!");
+            updateDisplay("You chose scissors, computer chose paper. You win!");
             return "human";
         }
         else {
-            console.log("You and computer choose scissors.");
-            console.log("It's a tie!");
+            updateDisplay("You and computer both chose scissors. It's a tie!");
             return "tie";
         }
     }
     else if (humanChoice.toLowerCase() == "rock") {
         if (computerChoice == "rock") {
-            console.log("You and computer choose rock.");
-            console.log("It's a tie!");
+            updateDisplay("You and computer both chose rock. It's a tie!");
             return "tie";
         }
         else if (computerChoice == "paper") {
-            console.log("You choose rock, computer choose paper.");
-            console.log("Computer wins!");
+            updateDisplay("You chose rock, computer chose paper. Computer wins!");
             return "computer";
         }
         else {
-            console.log("You choose rock, computer choose scissors.");
-            console.log("You win!");
+            updateDisplay("You chose rock, computer chose scissors. You win!");
             return "human";
         }
     }
     else if (humanChoice.toLowerCase() == "paper") {
         if (computerChoice == "rock") {
-            console.log("You choose paper, computer choose rock.");
-            console.log("You win!");
+            updateDisplay("You chose paper, computer chose rock. You win!");
             return "human";
         }
         else if (computerChoice == "paper") {
-            console.log("You and computer choose paper.");
-            console.log("It's a tie!");
+            updateDisplay("You and computer both chose paper. It's a tie!");
             return "tie";
         }
         else {
-            console.log("You choose paper, computer choose scissors.");
-            console.log("Computer wins!");
+            updateDisplay("You chose paper, computer chose scissors. Computer wins!");
             return "computer";
         }
     }
     else {
-        console.log("You either inputted an invalid answer or no answer. Computer wins by default.")
+        updateDisplay("Invalid answer. Computer wins by default.");
         return "computer";
     }
 }
